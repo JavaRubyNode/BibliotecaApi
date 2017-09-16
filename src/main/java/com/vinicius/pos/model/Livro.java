@@ -25,61 +25,55 @@ public class Livro extends EntityBase<Long>{
     @Temporal(TemporalType.DATE)
     private Date dataDePublicacao;
 
-    @Column(precision = 2, scale = 10)
+    @Column(precision = 10, scale = 2)
     private BigDecimal valor;
 
     @ManyToOne
     @JoinColumn(name = "id_genero",nullable = false)
     private Genero genero;
+    
+    @ManyToOne
+    @JoinColumn(name = "id_editora",nullable = false)
+    private Editora editora;
+    
+    @ManyToOne
+    @JoinColumn(name = "id_autor",nullable = false)
+    private Autor autor;
 
+    
+    public Livro(String nome, int volume, Date dataDePublicacao, BigDecimal valor, Genero genero, Editora editora,
+			Autor autor) {
+		super();
+		this.nome = nome;
+		this.volume = volume;
+		this.dataDePublicacao = dataDePublicacao;
+		this.valor = valor;
+		this.genero = genero;
+		this.editora = editora;
+		this.autor = autor;
+	}
+    
+    
+	public Autor getAutor() {return autor;}
+	public void setAutor(Autor autor) {this.autor = autor;}
 
-    public Livro(String nome, int volume, Date dataDePublicacao, BigDecimal valor, Genero genero) {
-        this.nome = nome;
-        this.volume = volume;
-        this.dataDePublicacao = dataDePublicacao;
-        this.valor = valor;
-        this.genero = genero;
-    }
+	public Editora getEditora() {return editora;}
+	public void setEditora(Editora editora) {this.editora = editora;}
 
-    public String getNome() {
-        return nome;
-    }
+	public String getNome() {return nome;}
+    public void setNome(String nome) {this.nome = nome;}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    public int getVolume() {return volume;}
+    public void setVolume(int volume) {this.volume = volume;}
 
-    public int getVolume() {
-        return volume;
-    }
+    public Date getDataDePublicacao() {return dataDePublicacao;}
+    public void setDataDePublicacao(Date dataDePublicacao) {this.dataDePublicacao = dataDePublicacao;}
 
-    public void setVolume(int volume) {
-        this.volume = volume;
-    }
+    public BigDecimal getValor() {return valor;}
+    public void setValor(BigDecimal valor) {this.valor = valor;}
 
-    public Date getDataDePublicacao() {
-        return dataDePublicacao;
-    }
-
-    public void setDataDePublicacao(Date dataDePublicacao) {
-        this.dataDePublicacao = dataDePublicacao;
-    }
-
-    public BigDecimal getValor() {
-        return valor;
-    }
-
-    public void setValor(BigDecimal valor) {
-        this.valor = valor;
-    }
-
-    public Genero getGenero() {
-        return genero;
-    }
-
-    public void setGenero(Genero genero) {
-        this.genero = genero;
-    }
+    public Genero getGenero() {return genero;}
+    public void setGenero(Genero genero) {this.genero = genero;}
 
 	@Override
 	public Long getId() {
@@ -90,4 +84,10 @@ public class Livro extends EntityBase<Long>{
 	public void setId(Long id) {
 		this.id=id;
 	}
+
+	public Livro() {
+		super();
+	}
+	
+		
 }

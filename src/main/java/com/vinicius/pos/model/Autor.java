@@ -7,6 +7,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -29,6 +30,7 @@ public class Autor extends EntityBase<Long> {
 	
 	@Column(nullable=false)
 	@Enumerated(EnumType.STRING)
+	@NotNull(message ="Sexo e obrigatorio")
 	private Sexo sexo;
 	
 	

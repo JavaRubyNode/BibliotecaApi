@@ -9,6 +9,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,13 +38,8 @@ public abstract class ResourceBase <ID extends Serializable, E extends EntityBas
 	@PutMapping("/{id}")
 	public ResponseEntity<E> alterar(@RequestBody @Valid E entidade, 
 			@PathVariable("id") ID id) {
-		
-		E entidadeAAlterar = this.service.alterar(entidade);
-		
-		if(entidadeAAlterar == null) {
-			return ResponseEntity.notFound().build();
-		}
-		return ResponseEntity.ok(entidadeAAlterar);
+		entidade.setId(id);
+		return ResponseEntity.ok(this.service.alterar(entidade));
 	}
 	
 	@GetMapping("/{id}")
@@ -52,6 +48,7 @@ public abstract class ResourceBase <ID extends Serializable, E extends EntityBas
 		return entidade != null ? ResponseEntity.ok(entidade) : ResponseEntity.notFound().build();
 	}
 	
+	@CrossOrigin
 	@GetMapping
 	public ResponseEntity<List<E>> listar() {
 		return ResponseEntity.ok(this.service.listar());
@@ -59,7 +56,8 @@ public abstract class ResourceBase <ID extends Serializable, E extends EntityBas
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> deletar(@PathVariable("id") ID id) {
-		return this.service.deletar(id) ?   ResponseEntity.noContent().build(): ResponseEntity.notFound().build();
+		this.service.deletar(id);
+		return ResponseEntity.noContent().build();
 	}	
 	
 	protected S getService() {

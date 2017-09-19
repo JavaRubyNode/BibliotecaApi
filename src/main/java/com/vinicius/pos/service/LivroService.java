@@ -15,9 +15,6 @@ public class LivroService extends ServiceCrudBase<Long, Livro, LivroRepository>{
 	@Override
 	public Livro inserir(Livro entidade) {
 		generoService.pesguisarPorId(entidade.getGenero().getId());
-		
-		
-		
 		return super.inserir(entidade);
 	}
 	

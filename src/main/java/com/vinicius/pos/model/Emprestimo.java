@@ -63,6 +63,22 @@ public class Emprestimo extends EntityBase<Long>{
 
 
 
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public Livro getLivro() {
+		return livro;
+	}
+
+	public void setLivro(Livro livro) {
+		this.livro = livro;
+	}
+
 	public Date getDataEmprestimo() {
 		return dataEmprestimo;
 	}

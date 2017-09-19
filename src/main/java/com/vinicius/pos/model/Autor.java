@@ -34,23 +34,16 @@ public class Autor extends EntityBase<Long> {
 	private Sexo sexo;
 	
 	
-	public String getNome() {
-		return nome;
-	}
+	
+	public Sexo getSexo() {return sexo;}
+	public void setSexo(Sexo sexo) {this.sexo = sexo;}
+	
+	
+	public String getNome() {return nome;}
+	public void setNome(String nome) {this.nome = nome;}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	@Override
-    public Long getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Long id) {
-        this.id = id;
-    }
+	@Override public Long getId() {return id;}
+    @Override public void setId(Long id) {this.id = id;}
 
 	@Override
 	public int hashCode() {

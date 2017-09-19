@@ -11,7 +11,7 @@ import com.vinicius.pos.service.LivroService;
 
 
 @RestController
-@RequestMapping("/livros")
+@RequestMapping("/emprestimos/livros")
 public class LivroResource extends ResourceBase<Long, Livro, LivroRepository ,LivroService>{
 
     

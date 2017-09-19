@@ -36,7 +36,7 @@ public class Livro extends EntityBase<Long>{
     @JoinColumn(name = "id_editora",nullable = false)
     private Editora editora;
     
-    @ManyToOne
+    @ManyToOne	
     @JoinColumn(name = "id_autor",nullable = false)
     private Autor autor;
 

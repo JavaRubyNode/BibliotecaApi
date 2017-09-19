@@ -29,9 +29,6 @@ public class Genero extends EntityBase<Long>{
     @NotEmpty(message = "Descrição e obrigatório !!")
     private String descricao;
 
-    @ManyToOne
-    @JoinColumn(name="id_livro")
-    private Livro livro;
     
     
     
@@ -59,13 +56,6 @@ public class Genero extends EntityBase<Long>{
     
     
 
-    public Livro getLivro() {
-		return livro;
-	}
-
-	public void setLivro(Livro livro) {
-		this.livro = livro;
-	}
 
 	public Genero() {
 		super();

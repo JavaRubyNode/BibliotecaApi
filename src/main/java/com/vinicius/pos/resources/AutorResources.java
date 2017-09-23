@@ -9,7 +9,7 @@ import com.vinicius.pos.repository.AutorRepository;
 import com.vinicius.pos.service.AutorService;
 
 @RestController
-@RequestMapping("/emprestimos/livros/autores")
+@RequestMapping("/autores")
 public class AutorResources extends ResourceBase<Long, Autor, AutorRepository, AutorService>{
 
 }

@@ -9,7 +9,7 @@ import com.vinicius.pos.repository.EnderecoRepository;
 import com.vinicius.pos.service.EnderecoService;
 
 @RestController
-@RequestMapping("/emprestimos/clientes/enderecos")
+@RequestMapping("/enderecos")
 public class EnderecoResources extends ResourceBase<Long, Endereco, EnderecoRepository, EnderecoService>{
 
 }

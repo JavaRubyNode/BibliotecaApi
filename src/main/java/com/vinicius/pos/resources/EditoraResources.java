@@ -9,7 +9,7 @@ import com.vinicius.pos.repository.EditoraRepository;
 import com.vinicius.pos.service.EditoraService;
 
 @RestController
-@RequestMapping("/emprestimos/livros/editoras")
+@RequestMapping("/editoras")
 public class EditoraResources extends ResourceBase<Long, Editora, EditoraRepository, EditoraService>{
 
 }

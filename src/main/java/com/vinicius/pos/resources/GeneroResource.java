@@ -12,7 +12,7 @@ import com.vinicius.pos.service.GeneroService;
 
 
 @RestController
-@RequestMapping("/emprestimos/livros/generos")
+@RequestMapping("/generos")
 public class GeneroResource extends ResourceBase<Long, Genero, GeneroRepository ,GeneroService>{
 
     

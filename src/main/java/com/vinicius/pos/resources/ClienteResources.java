@@ -9,7 +9,7 @@ import com.vinicius.pos.repository.ClienteRepository;
 import com.vinicius.pos.service.ClienteService;
 
 @RestController
-@RequestMapping("/emprestimos/livros/clientes")
+@RequestMapping("/clientes")
 public class ClienteResources extends ResourceBase<Long, Cliente, ClienteRepository, ClienteService>{
 
 }

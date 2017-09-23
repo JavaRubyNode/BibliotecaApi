@@ -19,13 +19,13 @@ public class ResourceServeConfig extends ResourceServerConfigurerAdapter{
 	
 	@Autowired
 	public void configure (AuthenticationManagerBuilder auth) throws Exception {
-	auth.inMemoryAuthentication().withUser("vinicius").password("123").roles("Administrador");}
+	auth.inMemoryAuthentication().withUser("admin").password("123").roles("ADMINISTRADOR");}
 	
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/v2/api-docs","configuration/ui","swagger-ui.html","webjars/**")
-		.permitAll().anyRequest().authenticated().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+		http.authorizeRequests().antMatchers("/**")
+		.permitAll().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 		.and().csrf().disable();
 	}
 
